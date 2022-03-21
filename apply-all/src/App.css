@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.alert .alert-danger{
+    color:red;
+}
+.alert .alert-success{
+    color:green;
+}
