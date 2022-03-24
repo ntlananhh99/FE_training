@@ -1,4 +1,5 @@
 import React from "react";
+import ListUsers from "./ListUsers";
 import { Navigate } from 'react-router-dom';
 
 function Users() {
@@ -6,15 +7,11 @@ function Users() {
         return <Navigate to="/signin" replace />;
       }
     
-      return <div> 
-        <p>User</p>
-        <p>User</p>
-        <p>User</p>
-        <p>User</p>
-        <p>User</p>
-        </div>;    
-        
-
+    return (
+      <div> 
+        <ListUsers/>
+      </div>
+      )    
 }
 
 export default Users;
