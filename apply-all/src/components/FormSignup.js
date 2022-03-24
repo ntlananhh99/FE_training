@@ -8,11 +8,9 @@ const FormSignup = () => {
     validateSignup
   );
   const list=[]
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [alert, setAlert]= useState({show: false, msg: "", type: ""});
 
   function submitForm() {
-    setIsSubmitted(true);
     showAlert(true, "success", "Created account")
   }
   const showAlert = (show= false, type ="", msg="") =>{

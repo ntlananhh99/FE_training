@@ -1,5 +1,5 @@
-import React from "react";
-import { NavLink, Link } from 'react-router-dom';
+import React , {useState, useEffect} from "react";
+import { Link } from 'react-router-dom';
 import { StyledHeader } from "./styles/Header.styled";
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
@@ -57,8 +57,15 @@ function classNames(...classes) {
 }
 
 
-
 function Header() {
+    const [isLogin, setIsLogin]= useState()
+    useEffect(() => {
+        localStorage.getItem("accessToken") ? setIsLogin(true) : setIsLogin(false)
+     }, []);
+     const logOut = ()=>{
+        localStorage.removeItem("accessToken")
+        setIsLogin(false)
+    }
     return (
         <StyledHeader>
             <Popover className="relative bg-white">
@@ -82,9 +89,9 @@ function Header() {
                         </div>
                         <Popover.Group as="nav" className="hidden md:flex space-x-10">
                   
-                                    <NavLink to="/"  exact={true} className="text-gray-900 bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >Home</NavLink>
-                                    <NavLink to="/todolist"  className="text-gray-900 bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >Todo List</NavLink>
-                                    <NavLink to="/users"  className="text-gray-900 bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >Users</NavLink>
+                                <Link to="/"  exact="true" className="text-gray-900 bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >Home</Link>
+                                <Link to="todolist"  className="text-gray-900 bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >Todo List</Link>
+                                <Link to="users"  className="text-gray-900 bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >Users</Link>
                             <Popover className="relative">
                                 {({ open }) => (
                                     <>
@@ -178,17 +185,25 @@ function Header() {
                             </Popover>
                         </Popover.Group>
                         <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                            <Link to="/signin"
-                                className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
-                            >
-                                Sign in
-                            </Link>
-                            <Link to="/signup"
-                                
+                            
+                            {isLogin ? 
+                            <Link to="/"
                                 className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
-                            >
-                                Sign up
+                                onClick={logOut}>
+                                    Log out
                             </Link>
+
+                            : <div>
+                                <Link to="/signin"
+                                className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+                                Sign in
+                                </Link>
+                                <Link to="/signup"
+                                className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700">
+                                    Sign up
+                              </Link> 
+                              </div> }
+
                         </div>
                     </div>
                 </div>
