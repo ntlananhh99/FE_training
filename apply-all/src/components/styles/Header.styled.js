@@ -4,5 +4,7 @@ export const StyledHeader = styled.div`
   .active{
     color: gray;
   }
-  z-index: 100;
+  #headlessui-menu-items-11 {
+    z-index: 1000;
+}
 `

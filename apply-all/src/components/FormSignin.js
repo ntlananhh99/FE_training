@@ -45,8 +45,8 @@ const FormSignin = () => {
                 <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
 
                     <div className="bg-white shadow-lg rounded xl:w-2/4 md:w-1/2 w-full lg:px-10 sm:px-6 sm:py-10 px-2 py-6">
-                        <p tabindex="0" className="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">Login to your account</p>
-                        <p tabindex="0" className="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-600 body-font">Dont have account? <Link to="/signin" className="text-blue-600 hover:text-blue-400"> Sign up here</Link></p>
+                        <p tabIndex="0" className="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800">Login to your account</p>
+                        <p tabIndex="0" className="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-600 body-font">Dont have account? <Link to="/signin" className="text-blue-600 hover:text-blue-400"> Sign up here</Link></p>
                         <button aria-label="Continue with google" className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 p-3 border rounded-lg border-gray-700 flex items-center w-full mt-5 hover:bg-gray-100">
                             <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in_2-svg2.svg" alt="google" />
                             <p className="text-base font-medium ml-4 text-gray-700">Continue with Google</p>

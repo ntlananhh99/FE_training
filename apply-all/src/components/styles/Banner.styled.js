@@ -30,6 +30,5 @@ export const StyledBanner = styled.div`
     color: #0d34a9;
     font-weight: bold;
   }
-  z-index: -1;
   
 `
