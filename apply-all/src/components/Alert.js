@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import { StyledAlert } from "./styles/Alert.styled";
-function Alert({type, msg, removeAlert,list}) {
+const Alert= ({type, msg, removeAlert, list}) =>{
     useEffect(()=>{
         const timeout= setTimeout(() => {
             removeAlert()
@@ -13,8 +13,6 @@ function Alert({type, msg, removeAlert,list}) {
         {msg}
       </p>
     </StyledAlert>
-    
   );
 }
-
 export default Alert;

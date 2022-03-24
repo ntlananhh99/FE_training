@@ -4,4 +4,5 @@ export const StyledHeader = styled.div`
   .active{
     color: gray;
   }
+  z-index: 100;
 `
