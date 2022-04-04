@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 import validateSignup from './validateInfo/validateSignup';
 import useForm from './useForm_signup';
 import Alert from './Alert';
+import {Link} from 'react-router-dom';
 const FormSignup = () => {
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,
     validateSignup
   );
   const list=[]
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [alert, setAlert]= useState({show: false, msg: "", type: ""});
 
   function submitForm() {
-    setIsSubmitted(true);
-    showAlert(true, "success", "Created account")
+    showAlert(true, "success", "Account is created!")
   }
   const showAlert = (show= false, type ="", msg="") =>{
     setAlert({show, type, msg} )
@@ -134,8 +133,8 @@ const FormSignup = () => {
                 <div className="md:w-2/3"></div>
               </div>
               
-              <div className='form-input-login'>
-                Already have an account? Login here
+              <div className='form-input-login text-gray-600 body-font'>
+                Already have an account? <Link to="/signin" className='text-blue-600 hover:text-blue-400'>Login</Link>
               </div>            
           </form>
         </div>
